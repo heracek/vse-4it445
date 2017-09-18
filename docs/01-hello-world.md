@@ -22,8 +22,6 @@ You can use any editor you like, but:
 
 - [remote-ftp](https://atom.io/packages/remote-ftp)
 - [language-babel](https://atom.io/packages/language-babel)
-- if you want to use Czech keyboard: [keyboard-localization](https://atom.io/packages/keyboard-localization)
-  - then go to `keyboard-localization` plugin settings and select `cs_CZ` keyboard
 
 **After the installation of all plugins please quit and start the Atom again.**
 
@@ -76,12 +74,12 @@ Now you should see second tree view with files on server.
 
 - [Git](https://git-scm.com/)
   - use of command line tool is suggested
-- [Node.js v6.6](https://nodejs.org/)
+- [Node.js v6.11.3](https://nodejs.org/)
   - use of [nvm - Node Version Manager](https://github.com/creationix/nvm) or [nvm-windows](https://github.com/coreybutler/nvm-windows) is suggested
     - this allows simple management of multiple Node.js versions on your compouter
-    - to install 6.6 run `nvm install 6.6`
-    - to use 6.6 run `nvm use 6.6` (this may be required each time you start new Terminal session)
-  - if `nvm` is not your cup of tea, you can donwload it directly from [Node.js v6.6](https://nodejs.org/) site
+    - to install 6.11.3 run `nvm install 6.11.3`
+    - to use 6.11 run `nvm use 6.11.3` (this may be required each time you start new Terminal session)
+  - if `nvm` is not your cup of tea, you can donwload it directly from [Node.js v6.11.3](https://nodejs.org/) site
 
 ### Clone Git Repo
 
