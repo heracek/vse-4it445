@@ -1,25 +1,5 @@
 # 2nd Practical Class: React Basics and React Router
 
-
-## (optional) add ssh key
-you can add your ssh key to server so you don't have to use password every time you connect
-
-1. check if you already have keys
-```bash
-ls -al ~/.ssh
-```
-if `id_rsa.pub` exists go to step 3.
-
-2. generate an ssh key
-```bash
-ssh-keygen
-```
-
-3. add the key to server
-```bash
-ssh-copy-id -i ~/.ssh/id_rsa.pub USERNAME@vse.handson.pro
-```
-
 ## Git setup at the virtual machine
 
 1. check/correct your git settings
@@ -53,9 +33,10 @@ git add .
 git commit
 
 git log
+```
 
 ### How to reset to current practice branch
-
+```bash
 git fetch --all
 
 git checkout -b my-practice-02
@@ -93,6 +74,25 @@ git remote add origin <git@github.com:GITHUBUSERNAME/vse-4it445.git>
 git checkout <branch-name>
 
 git push --set-upstream origin <branch-name>
+```
+
+## (optional) add ssh key
+you can add your ssh key to server so you don't have to use password every time you connect
+
+1. check if you already have keys
+```bash
+ls -al ~/.ssh
+```
+if `id_rsa.pub` exists go to step 3.
+
+2. generate an ssh key
+```bash
+ssh-keygen
+```
+
+3. add the key to server
+```bash
+ssh-copy-id -i ~/.ssh/id_rsa.pub USERNAME@vse.handson.pro
 ```
 
 ## Firefox Plugins
