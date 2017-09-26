@@ -1,7 +1,7 @@
 # 2nd Practical Class: React Basics and React Router
 
 
-## (voluntary) add ssh key
+## (optional) add ssh key
 you can add your ssh key to server so you don't have to use password every time you connect
 
 1. check if you already have keys
@@ -30,17 +30,40 @@ git config --global user.email "username@example.com"
 ```
 2. initialize git repository
 ```bash
-cd code/cviceni/frontend
+cd code/cviceni
 git init
 ```
-
-## setup git for your remote - USERNAME@vse.handson.pro (if you'd like to commit)
 
 ### add upstream repository
 
 ```bash
 git remote add cngroup https://github.com/cngroupdk/vse-4it445.git
 ```
+
+## Git basics
+
+```bash
+git status
+
+git checkout -b <the-branch-name>
+
+
+git add .
+
+git commit
+
+git log
+
+### How to reset to current practice branch
+
+git fetch --all
+
+git checkout -b my-practice-02
+
+git reset --hard cngroup/practical-02
+```
+
+## setup git for your remote - USERNAME@vse.handson.pro (if you'd like to commit)
 
 ### using fork and sshkey
 
@@ -70,31 +93,6 @@ git remote add origin <git@github.com:GITHUBUSERNAME/vse-4it445.git>
 git checkout <branch-name>
 
 git push --set-upstream origin <branch-name>
-```
-
-## Git basics
-
-```bash
-git status
-
-git checkout -b <the-branch-name>
-
-
-git add .
-
-git commit
-
-git log
-
-
-git fetch --all
-
-git checkout -b my-practice-02
-
-git reset --hard cngroup/practical-02
-
-
-git checkout <branch-name>
 ```
 
 ## Firefox Plugins
