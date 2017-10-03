@@ -5,7 +5,9 @@
 ```bash
 git fetch --all
 git reset --hard cngroup/practical-03
-cd backend
+cd frontend
+npm install
+cd ../backend
 npm install
 npm run build:watch
 ```
