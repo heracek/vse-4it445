@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import { API_URL } from '../constants';
+import api from '../api.js';
 
 import { ProductList } from '../components/ProductList/ProductList.js';
 
@@ -14,7 +13,7 @@ export class ProductsPage extends Component {
   }
 
   componentDidMount() {
-    axios.get(`${API_URL}/products`).then(res => {
+    api('products/').then(res => {
       const { products } = res.data;
       this.setState({ products });
     });

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import { API_URL } from '../constants';
+import api from '../api.js';
 
 import { ContactListItem } from '../components/ContactList/ContactListItem';
 
@@ -15,12 +14,12 @@ export class ContactPage extends Component {
   }
 
   componentDidMount() {
-    axios.get(`${API_URL}/contacts/department?q=sales`)
+    api(`/contacts/department?q=sales`)
       .then(res => {
         const { contacts } = res.data || [];
         this.setState({ salesContacts: contacts });
       });
-    axios.get(`${API_URL}/contacts/department?q=marketing`)
+    api(`/contacts/department?q=marketing`)
       .then(res => {
         const { contacts } = res.data || [];
         this.setState({ marketingContacts: contacts });

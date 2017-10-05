@@ -1,18 +1,49 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 
-export class ProductDetailPage extends Component {
-  selectTab(event, tabId) {
+import api from '../api.js';
+import { AddProductToCartButtonContainer } from '../components/ShoppingCart/AddProductToCartButton.js';
 
+export class ProductDetailPage extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      activeTabId: 0,
+      product: null,
+    };
+  }
+
+  componentDidMount() {
+    const { productId } = this.props.params;
+    api(`products/id?q=${productId}`
+    ).then((response) => {
+      const [ product ] = response.data.products;
+      this.setState({ product });
+    });
+  }
+
+  selectTab(event, tabId) {
+    event.preventDefault();
+    this.setState({ activeTabId: tabId })
   }
 
   render() {
-    const { productId } = this.props.params;
-    const activeTabId = 0;
+    const { product, activeTabId } = this.state;
+    if (!product) {
+      return <div> Loading... </div>;
+    }
+
+    const {
+      title,
+      price,
+      shortInfo,
+    } = product;
+
     return (
       <div>
         <div className="jumbotron">
-          <h1>Škoda Superb</h1>
+          <h1>{title}</h1>
         </div>
         <div className="product">
           <ul className="nav nav-tabs">
@@ -27,9 +58,8 @@ export class ProductDetailPage extends Component {
               </a>
             </li>
           </ul>
-          <h3>id: {productId}</h3>
-          <p>price: <span className="price">750 000 Kč</span></p>
-          <p>Luxury car produced in the Czech Republic.</p>
+          <p>price: <span className="price">{price}</span></p>
+          <p>{shortInfo}</p>
         </div>
       </div>
     );

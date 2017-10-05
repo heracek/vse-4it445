@@ -1,6 +1,5 @@
 import React from 'react';
-import axios from 'axios';
-import { API_URL } from '../constants';
+import api from '../api';
 
 export class ContactDetail extends React.Component {
   constructor(props) {
@@ -13,7 +12,7 @@ export class ContactDetail extends React.Component {
 
   componentDidMount() {
     const { contactId } = this.props.params;
-    axios.get(`${API_URL}/contacts/id?q=${contactId}`)
+    api(`/contacts/id?q=${contactId}`)
       .then(res => {
         const { contacts } = res.data || [];
         this.setState({ contacts })
@@ -32,7 +31,7 @@ export class ContactDetail extends React.Component {
 
     return (
       <div>
-        <img src={image} height="300" width="auto" />
+        <img src={image} height="300" width="auto" alt={name} />
         <h1>{name}</h1>
         <h3>{email}</h3>
         <h3>{department}</h3>
