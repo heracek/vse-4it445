@@ -4,15 +4,18 @@ import { connect } from 'react-redux';
 
 export class ShoppingCartPageRaw extends Component {
   render() {
-    const { shoppingCart } = this.props;
+    const { shoppingCartItems } = this.props;
+
     return (
       <div>
         <div className="jumbotron">
           <h1>Shopping Cart</h1>
         </div>
-        {lodash.values(shoppingCart).map(({ product, count }) => (
-          <div key={product.id}>
-            <h3>{count} x {product.title}</h3>
+        {shoppingCartItems.map(item => (
+          <div key={item.product.id}>
+            <h3>
+              {item.count}&times; {item.product.title}
+            </h3>
           </div>
         ))}
       </div>
@@ -20,14 +23,12 @@ export class ShoppingCartPageRaw extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const { shoppingCart } = state;
 
   return {
-    shoppingCart,
+    shoppingCartItems: shoppingCart.items,
   };
-}
+};
 
-export const ShoppingCartPage = connect(
-  mapStateToProps,
-)(ShoppingCartPageRaw);
+export const ShoppingCartPage = connect(mapStateToProps)(ShoppingCartPageRaw);

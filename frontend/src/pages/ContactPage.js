@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import api from '../api.js';
 
+import api from '../api.js';
 import { ContactListItem } from '../components/ContactList/ContactListItem';
 
 export class ContactPage extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       salesContacts: [],
@@ -14,20 +14,19 @@ export class ContactPage extends Component {
   }
 
   componentDidMount() {
-    api(`/contacts/department?q=sales`)
-      .then(res => {
-        const { contacts } = res.data || [];
-        this.setState({ salesContacts: contacts });
-      });
-    api(`/contacts/department?q=marketing`)
-      .then(res => {
-        const { contacts } = res.data || [];
-        this.setState({ marketingContacts: contacts });
-      });
+    api(`/contacts/department?q=sales`).then(res => {
+      const { contacts } = res.data || [];
+      this.setState({ salesContacts: contacts });
+    });
+    api(`/contacts/department?q=marketing`).then(res => {
+      const { contacts } = res.data || [];
+      this.setState({ marketingContacts: contacts });
+    });
   }
 
   render() {
     const { salesContacts, marketingContacts } = this.state;
+
     return (
       <div>
         <div className="jumbotron">
@@ -35,19 +34,18 @@ export class ContactPage extends Component {
         </div>
         <div>
           <h3>Sales</h3>
-          {salesContacts.map(person =>
-            <ContactListItem person={person} key={person.id}/>
-          )}
+          {salesContacts.map(person => (
+            <ContactListItem person={person} key={person.id} />
+          ))}
         </div>
         <div>
           <h3>Marketing</h3>
-          {marketingContacts.map(person =>
-            <ContactListItem person={person} key={person.id}/>
-          )}
+          {marketingContacts.map(person => (
+            <ContactListItem person={person} key={person.id} />
+          ))}
         </div>
         <div>
           <h3>Claims</h3>
-
         </div>
         <p>Contact us.</p>
       </div>

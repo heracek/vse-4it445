@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 
 import api from '../api.js';
-import { AddProductToCartButtonContainer } from '../components/ShoppingCart/AddProductToCartButton.js';
+import { AddProductToCartButton } from '../components/ShoppingCart/AddProductToCartButton';
 
 export class ProductDetailPage extends Component {
   constructor(props) {
@@ -16,49 +16,57 @@ export class ProductDetailPage extends Component {
 
   componentDidMount() {
     const { productId } = this.props.params;
-    api(`products/id?q=${productId}`
-    ).then((response) => {
-      const [ product ] = response.data.products;
+
+    api(`products/id?q=${productId}`).then(response => {
+      const [product] = response.data.products;
       this.setState({ product });
     });
   }
 
   selectTab(event, tabId) {
     event.preventDefault();
-    this.setState({ activeTabId: tabId })
+    this.setState({ activeTabId: tabId });
   }
 
   render() {
     const { product, activeTabId } = this.state;
+
     if (!product) {
       return <div> Loading... </div>;
     }
 
-    const {
-      title,
-      price,
-      shortInfo,
-    } = product;
+    const { title, price, shortInfo } = product;
 
     return (
       <div>
         <div className="jumbotron">
           <h1>{title}</h1>
         </div>
+        <div className="pull-right">
+          <AddProductToCartButton product={product} />
+        </div>
         <div className="product">
           <ul className="nav nav-tabs">
-            <li role="presentation" className={classNames({ active: 0 === activeTabId })}>
-              <a href="#" onClick={(event) => this.selectTab(event, 0)}>
+            <li
+              role="presentation"
+              className={classNames({ active: 0 === activeTabId })}
+            >
+              <a href="#" onClick={event => this.selectTab(event, 0)}>
                 Description
               </a>
             </li>
-            <li role="presentation" className={classNames({ active: 1 === activeTabId })}>
-              <a href="#" onClick={(event) => this.selectTab(event, 1)}>
+            <li
+              role="presentation"
+              className={classNames({ active: 1 === activeTabId })}
+            >
+              <a href="#" onClick={event => this.selectTab(event, 1)}>
                 Parameters
               </a>
             </li>
           </ul>
-          <p>price: <span className="price">{price}</span></p>
+          <p>
+            price: <span className="price">{price}</span>
+          </p>
           <p>{shortInfo}</p>
         </div>
       </div>

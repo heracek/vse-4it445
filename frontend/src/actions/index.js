@@ -1,8 +1,8 @@
 export const DUMMY_ACTION = 'DUMMY_ACTION';
 
-export const dummyAction = data => {
-  return {
-    type: DUMMY_ACTION,
-    data,
-  };
-};
+export const dummyAction = product => ({
+  type: DUMMY_ACTION,
+  payload: {
+    product,
+  },
+});
