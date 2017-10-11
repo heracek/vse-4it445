@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { dummyAction } from '../../actions';
+import { addProductToCart } from '../../actions/shoppingCart';
 
 export class AddProductToCartButtonRaw extends Component {
   render() {
-    const { product, dummyAction } = this.props;
+    const { product, addProductToCart } = this.props;
 
     return (
       <button
-        onClick={() => dummyAction(product)}
+        onClick={() => addProductToCart(product)}
         type="button"
         className="btn btn-success"
       >
@@ -26,10 +26,10 @@ export class AddProductToCartButtonRaw extends Component {
 const mapStateToProps = state => ({});
 
 const mapDispatchToProps = {
-  dummyAction,
+  addProductToCart,
 };
 
 export const AddProductToCartButton = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(AddProductToCartButtonRaw);

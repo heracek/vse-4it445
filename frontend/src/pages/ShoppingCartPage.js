@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import lodash from 'lodash';
 import { connect } from 'react-redux';
 
 export class ShoppingCartPageRaw extends Component {
@@ -23,12 +22,8 @@ export class ShoppingCartPageRaw extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  const { shoppingCart } = state;
-
-  return {
-    shoppingCartItems: shoppingCart.items,
-  };
-};
+const mapStateToProps = state => ({
+  shoppingCartItems: state.shoppingCart.items,
+});
 
 export const ShoppingCartPage = connect(mapStateToProps)(ShoppingCartPageRaw);
