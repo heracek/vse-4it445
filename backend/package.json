@@ -20,12 +20,16 @@
     "dotenv": "4.0.0",
     "express": "^4.15.2",
     "express-async-await": "1.0.1",
-    "log4js": "1.1.1"
+    "log4js": "1.1.1",
+    "mysql2": "1.4.2",
+    "sequelize": "4.13.10",
+    "sqlite3": "3.1.13"
   },
   "devDependencies": {
     "nodemon": "1.12.1",
     "npm-run-all": "4.1.1",
     "prettier": "1.7.3",
+    "sequelize-cli": "3.0.0",
     "touch": "3.1.0"
   },
   "license": "ISC"

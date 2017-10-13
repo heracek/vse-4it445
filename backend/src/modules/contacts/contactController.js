@@ -7,7 +7,9 @@ export const contactsController = async (req, res) => {
 export const contactDetailController = async (req, res) => {
   const { params, query } = req;
   const { contacts } = contactList;
-  const filteredContacts = contacts.filter(contact => contact[params.id] == query.q);
+  const filteredContacts = contacts.filter(
+    contact => contact[params.id] == query.q
+  );
 
   const data = {
     contacts: filteredContacts,

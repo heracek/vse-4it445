@@ -1,7 +1,10 @@
 import expressAsyncAwait from 'express-async-await';
 import { Router } from 'express';
 
-import { contactsController, contactDetailController } from './contactController.js';
+import {
+  contactsController,
+  contactDetailController,
+} from './contactController.js';
 
 const router = expressAsyncAwait(Router());
 router.get('/', contactsController);
